@@ -3,33 +3,33 @@
 {% block content %}
 <div class="form-page">
   <div class="centered-wrapper">
-    <div class="form-card">
-      <h2>Reset Password</h2>
-      <form id="resetForm" method="post" action="{{ url_for('reset_password', token=token) }}" autocomplete="off" novalidate>
-        <!-- dummy field to discourage autofill -->
-        <input type="text" name="fakeuser" style="display:none">
+    <form method="post" class="form" action="{{ url_for('reset_password', token=token) }}" autocomplete="off">
+      <h2>Reset Your Password</h2>
+      <p style="color: #6b7280; font-size: 0.95rem; margin-bottom: 1rem;">
+        Enter your new password below.
+      </p>
 
-        <label for="password">New Password</label>
-        <div class="pw-wrap">
-          <input type="password" id="password" name="password" placeholder="Enter New Password" autocomplete="new-password" required>
-          <button type="button" class="toggle-pw" data-target="password" aria-label="Toggle password">👁️</button>
+      <label>
+        New Password
+        <div style="display:flex;gap:8px;align-items:center">
+          <input class="password-input" type="password" name="password" placeholder="Min 6 chars, letter+number+symbol" autocomplete="new-password" required pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{6,}" title="Min 6 chars, include letter, number and symbol">
+          <button type="button" class="toggle-password" title="Show/Hide password">👁️</button>
         </div>
+      </label>
 
-        <label for="repassword">Confirm Password</label>
-        <div class="pw-wrap">
-          <input type="password" id="repassword" name="repassword" placeholder="Confirm New Password" autocomplete="new-password" required>
-          <button type="button" class="toggle-pw" data-target="repassword" aria-label="Toggle password">👁️</button>
+      <label>
+        Confirm Password
+        <div style="display:flex;gap:8px;align-items:center">
+          <input class="password-input" type="password" name="repassword" placeholder="Confirm new password" autocomplete="new-password" required>
+          <button type="button" class="toggle-password" title="Show/Hide password">👁️</button>
         </div>
+      </label>
 
-        <div class="row" style="justify-content:center; margin-top:1rem;">
-          <button class="btn" type="submit">Update Password</button>
-        </div>
-
-        <p class="reset-info" style="margin-top:1rem">
-          After updating, you'll be redirected to login.
-        </p>
-      </form>
-    </div>
+      <div class="form-actions">
+        <button type="submit" class="btn primary">Reset Password</button>
+        <a href="{{ url_for('login') }}" class="btn link">Back to Login</a>
+      </div>
+    </form>
   </div>
 </div>
 {% endblock %}

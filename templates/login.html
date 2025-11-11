@@ -1,26 +1,25 @@
 {% extends "base.html" %}
 {% block title %}Login - Flask App{% endblock %}
 {% block content %}
-<div class="form-page">
-    <div class="centered-wrapper">
-        <div class="form-card">
-<h2>Login</h2>
-<form id="loginForm" method="post" action="{{ url_for('login') }}" novalidate>
-  <label>Username (email)</label>
-  <input name="username" id="login-username" placeholder="you@gmail.com" required>
-
-  <label>Password</label>
-  <div class="pw-wrap">
-    <input type="password" name="password" id="login-password" placeholder="Password" required>
-    <button type="button" class="toggle-pw" data-target="login-password" aria-label="Toggle password">👁️</button>
-  </div>
-
-  <div class="row">
-    <a href="{{ url_for('forgot') }}">Forgot Password?</a>
-    <button class="btn" type="submit">Login</button>
-  </div>
-</form>
-</div>
-  </div>
+<div style="display:flex;justify-content:center;align-items:center;min-height:calc(100vh - 200px);">
+  <form method="post" class="form" data-ajax="true" action="{{ url_for('login') }}">
+    <h2>Login</h2>
+    <label>
+      Username or Email
+      <input type="text" name="username" required>
+    </label>
+    <label>
+      Password
+      <div style="display:flex;gap:8px;align-items:center">
+        <input class="password-input" type="password" name="password" required>
+        <button type="button" class="toggle-password" title="Show/Hide password">👁️</button>
+      </div>
+    </label>
+    <div class="form-actions">
+      <button type="submit" class="btn primary">Login</button>
+      <a href="{{ url_for('register') }}" class="btn link">Create Account</a>
+      <a href="{{ url_for('forgot') }}" class="btn link">Forgot?</a>
+    </div>
+  </form>
 </div>
 {% endblock %}

@@ -1,16 +1,25 @@
 {% extends "base.html" %}
 {% block title %}Profile - Flask App{% endblock %}
 {% block content %}
-<div class="profile-background">
+<h2>Your Profile</h2>
+{% if user %}
   <div class="profile-card">
-    <img src="{{ url_for('static', filename='images/Profile.jpeg') }}" alt="avatar" class="avatar">
+    <!-- Real profile image from static folder -->
+    <img src="{{ url_for('static', filename='images/Profile.jpeg') }}" alt="Profile" class="profile-avatar">
+    
     <div class="profile-info">
-      <h2>{{ user['name'] }}</h2>
-      <p><strong>Email:</strong> {{ user['email'] }}</p>
-      <p><strong>Member since:</strong> {{ user['created_at'] }}</p>
-      <p><strong>Phone:</strong> {{ user['mobile'] }}</p>
-      <p><strong>Address</Address>:</strong> {{ user['Address'] }}</p>
+      <h3>{{ user.name }}</h3>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Mobile:</strong> {{ user.mobile }}</p>
+      <p><strong>Address:</strong> {{ user.address or 'Not provided' }}</p>
+      <p><strong>Member Since:</strong> {{ user.created_at }}</p>
     </div>
   </div>
-</div>
+
+  <script>
+    try { history.replaceState({}, '', window.location.href); } catch(e) {}
+  </script>
+{% else %}
+  <p>No user data found.</p>
+{% endif %}
 {% endblock %}

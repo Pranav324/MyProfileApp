@@ -1,32 +1,38 @@
 {% extends "base.html" %}
-{% block title %}Home - Flask App{% endblock %}
+{% block title %}Home - MyProfileApp{% endblock %}
 {% block content %}
-<section class="hero" style="background-image:url('static/images/hero.jpg');">
+<section class="hero card">
   <div class="hero-inner">
-    <h1>Welcome to the Flask App</h1>
-    <p>A simple responsive app with registration, login and profile.</p>
-    <div class="cta">
-      <a class="btn" href="{{ url_for('register') }}">Get Started</a>
-      <a class="btn btn-outline" href="{{ url_for('login') }}">Sign In</a>
+    <h1>Welcome to MyProfileApp</h1>
+    <p class="hero-subtitle">Create and manage your professional profile with ease and security</p>
+    <div class="hero-actions">
+      <a href="{{ url_for('register') }}" class="btn primary">Get Started</a>
+      <a href="{{ url_for('login') }}" class="btn link">Sign In</a>
     </div>
   </div>
+
+  <!-- Real hero image from static folder (fixed path) -->
+  <img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="Hero" class="img-hero">
 </section>
 
-<section class="features">
-  <div class="card">
-    <img src="{{ url_for('static', filename='images/team1.jpg') }}" alt="team1">
+<!-- Features row: Team / Design / Brand -->
+<section class="features container card" aria-label="features">
+  <div class="feature">
+    <img src="{{ url_for('static', filename='images/team1.jpg') }}" alt="Team" class="feature-img">
     <h3>Team</h3>
-    <p>Meet the people behind the project.</p>
+    <p>Collaborate with your team and share profiles effortlessly.</p>
   </div>
-  <div class="card">
-    <img src="{{ url_for('static', filename='images/team2.jpg') }}" alt="team2">
+
+  <div class="feature">
+    <img src="{{ url_for('static', filename='images/team2.jpg') }}" alt="Design" class="feature-img">
     <h3>Design</h3>
-    <p>Modern responsive UI with CSS and JS.</p>
+    <p>Beautiful, accessible interface built for all users.</p>
   </div>
-  <div class="card">
-    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+
+  <div class="feature">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Brand" class="feature-img">
     <h3>Brand</h3>
-    <p>Logical folder structure for easy development.</p>
+    <p>Professional branding that represents your identity.</p>
   </div>
 </section>
 {% endblock %}
