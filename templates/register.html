@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Register - Flask App{% endblock %}
+{% block content %}
+<div class="form-page">
+    <div class="centered-wrapper">
+        <div class="form-card">
+<h2>Register</h2>
+<form id="registerForm" method="post" action="{{ url_for('register') }}" novalidate>
+  <label>Name</label>
+  <input name="name" id="name" placeholder="First Last" required>
+
+  <label>Email</label>
+  <input name="email" id="email" placeholder="you@gmail.com" required>
+
+  <label>Mobile</label>
+  <input name="mobile" id="mobile" placeholder="10-digit mobile" required>
+
+  <label>Address</label>
+  <textarea name="address" id="address" rows="3" placeholder="Your address"></textarea>
+
+  <label>Username</label>
+  <input name="username" id="username" placeholder="must match email" required>
+
+  <label>Password</label>
+  <div class="pw-wrap">
+    <input type="password" name="password" id="password" placeholder="Password" required>
+    <button type="button" class="toggle-pw" data-target="password" aria-label="Toggle password">👁️</button>
+  </div>
+
+  <label>Re-enter Password</label>
+  <div class="pw-wrap">
+    <input type="password" name="repassword" id="repassword" placeholder="Re-enter password" required>
+    <span id="pw-match" class="pw-match">●</span>
+  </div>
+
+  <button class="btn" type="submit">Register</button>
+</form>
+</div>
+  </div>
+</div>
+<script>
+  // Form validation logic is in static/js/main.js (loaded globally)
+</script>
+{% endblock %}

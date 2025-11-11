@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Reset Password - Flask App{% endblock %}
+{% block content %}
+<div class="form-page">
+  <div class="centered-wrapper">
+    <div class="form-card">
+      <h2>Reset Password</h2>
+      <form id="resetForm" method="post" action="{{ url_for('reset_password', token=token) }}" autocomplete="off" novalidate>
+        <!-- dummy field to discourage autofill -->
+        <input type="text" name="fakeuser" style="display:none">
+
+        <label for="password">New Password</label>
+        <div class="pw-wrap">
+          <input type="password" id="password" name="password" placeholder="Enter New Password" autocomplete="new-password" required>
+          <button type="button" class="toggle-pw" data-target="password" aria-label="Toggle password">👁️</button>
+        </div>
+
+        <label for="repassword">Confirm Password</label>
+        <div class="pw-wrap">
+          <input type="password" id="repassword" name="repassword" placeholder="Confirm New Password" autocomplete="new-password" required>
+          <button type="button" class="toggle-pw" data-target="repassword" aria-label="Toggle password">👁️</button>
+        </div>
+
+        <div class="row" style="justify-content:center; margin-top:1rem;">
+          <button class="btn" type="submit">Update Password</button>
+        </div>
+
+        <p class="reset-info" style="margin-top:1rem">
+          After updating, you'll be redirected to login.
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

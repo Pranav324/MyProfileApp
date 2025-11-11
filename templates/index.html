@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Home - Flask App{% endblock %}
+{% block content %}
+<section class="hero" style="background-image:url('static/images/hero.jpg');">
+  <div class="hero-inner">
+    <h1>Welcome to the Flask App</h1>
+    <p>A simple responsive app with registration, login and profile.</p>
+    <div class="cta">
+      <a class="btn" href="{{ url_for('register') }}">Get Started</a>
+      <a class="btn btn-outline" href="{{ url_for('login') }}">Sign In</a>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="card">
+    <img src="{{ url_for('static', filename='images/team1.jpg') }}" alt="team1">
+    <h3>Team</h3>
+    <p>Meet the people behind the project.</p>
+  </div>
+  <div class="card">
+    <img src="{{ url_for('static', filename='images/team2.jpg') }}" alt="team2">
+    <h3>Design</h3>
+    <p>Modern responsive UI with CSS and JS.</p>
+  </div>
+  <div class="card">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+    <h3>Brand</h3>
+    <p>Logical folder structure for easy development.</p>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,163 @@
+/* Basic modern responsive styling */
+:root{
+  --accent:#2f80ed;
+  --muted:#6b7280;
+  --bg:#f7fafc;
+  --card:#ffffff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:Inter, Arial, sans-serif;background:var(--bg);color:#111;
+}
+.nav{
+  display:flex;justify-content:space-between;align-items:center;padding:0.6rem 1rem;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
+.logo{height:40px;border-radius:6px;margin-right:10px}
+.brand{font-weight:700;color:var(--accent);text-decoration:none}
+.nav-right a{margin-left:12px;text-decoration:none;color:#333}
+.container{max-width:1100px;margin:1.2rem auto;padding:1rem}
+.hero{
+  padding:4rem 1rem;border-radius:12px;color:white;background-size:cover;background-position:center;position:relative;overflow:hidden;
+  display:flex;align-items:center;
+}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));}
+.hero-inner{position:relative;z-index:2;max-width:700px}
+.hero h1{font-size:2.4rem;margin:0 0 0.5rem}
+.hero p{margin:0 0 1rem;color:rgba(255,255,255,0.9)}
+.cta .btn{margin-right:8px}
+.btn{background:var(--accent);color:#fff;padding:0.6rem 1rem;border-radius:8px;border:none;text-decoration:none;cursor:pointer}
+.btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.5);color:white}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.card{background:var(--card);padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(16,24,40,0.06);text-align:center}
+.card img{max-width:100%;height:140px;object-fit:cover;border-radius:8px}
+form{background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 6px 18px rgba(16,24,40,0.06);max-width:600px}
+label{display:block;margin-top:0.6rem;color:var(--muted);font-size:0.95rem}
+input,textarea{width:100%;padding:0.6rem;border-radius:6px;border:1px solid #e6e9ee;margin-top:0.25rem}
+.pw-wrap{display:flex;align-items:center}
+.pw-wrap input{flex:1}
+.toggle-pw{border:none;background:transparent;font-size:1rem;cursor:pointer;padding:0.4rem 0.6rem}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:0.8rem}
+.flashwrap{margin-bottom:0.8rem}
+.flash{padding:0.6rem;border-radius:6px;margin-bottom:0.4rem}
+.flash.success{background:#e6fffb;color:#064e3b}
+.flash.danger{background:#ffe4e6;color:#7f1d1d}
+.footer{text-align:center;padding:1rem;color:var(--muted);margin-top:1.2rem}
+
+/* Profile */
+.profile-card{display:flex;gap:1rem;background:var(--card);padding:1rem;border-radius:10px}
+.avatar{width:160px;height:160px;object-fit:cover;border-radius:10px}
+.profile-info h2{margin:0}
+
+/* small screens */
+@media(max-width:700px){
+  .hero{padding:2rem}
+  .hero h1{font-size:1.6rem}
+  .profile-card{flex-direction:column;align-items:center}
+}
+
+/* Centered form styles */
+.form-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 140px);
+    padding: 20px;
+}
+
+.centered-wrapper {
+    width: 100%;
+    max-width: 560px;
+}
+
+.form-card {
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(20,30,60,0.08);
+}
+
+.form-card form > * {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Reset container for non-form pages */
+.container {
+    max-width: 1100px;
+    margin: 1.2rem auto;
+    padding: 1rem;
+}
+
+/* Button sizing - updated for center alignment */
+.form-card .btn {
+    width: auto;
+    min-width: 120px;
+    padding: 0.6rem 1.5rem;
+    margin: 0 auto;  /* Changed from margin-left: auto */
+    display: block;
+}
+
+/* Adjust row styling for form pages */
+.form-card .row {
+    display: flex;
+    justify-content: center;  /* Changed from space-between */
+    align-items: center;
+    margin-top: 1.2rem;
+}
+
+.profile-background {
+    position: relative;
+    overflow: hidden;
+    min-height: calc(100vh - 140px); /* keep existing sizing or adjust */
+    padding: 7rem;
+}
+
+.profile-background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/Profile Back.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    pointer-events: none;
+    /* Option A: fully transparent (invisible) */
+     opacity: 0; 
+
+    /* Option B: semi-transparent (visible) - use a value like 0.25 */
+    opacity: 1;
+}
+
+.profile-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255,255,255,0.7); /* adjust card opacity if desired */
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* Password match indicator */
+.match-indicator {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    margin: 0.5rem 0;
+    transition: background-color 0.2s;
+}
+
+.match-indicator.match {
+    background: #10b981;
+}
+
+.match-indicator.no-match {
+    background: #ef4444;
+}
+
+/* Password reset specific */
+.reset-info {
+    text-align: center;
+    color: var(--muted);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}

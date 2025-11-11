@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Profile - Flask App{% endblock %}
+{% block content %}
+<div class="profile-background">
+  <div class="profile-card">
+    <img src="{{ url_for('static', filename='images/Profile.jpeg') }}" alt="avatar" class="avatar">
+    <div class="profile-info">
+      <h2>{{ user['name'] }}</h2>
+      <p><strong>Email:</strong> {{ user['email'] }}</p>
+      <p><strong>Member since:</strong> {{ user['created_at'] }}</p>
+      <p><strong>Phone:</strong> {{ user['mobile'] }}</p>
+      <p><strong>Address</Address>:</strong> {{ user['Address'] }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
